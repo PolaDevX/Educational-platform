@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+	
+    <body data-spy="scroll" data-offset="80">
+
+		<!-- START HOME -->
+		<section class="home_bg hb_height" style="background-image: url('{% static "assets/img/bg/home-bg.jpg" %}'); background-size:cover; background-position: center center;">
+			<div class="container">
+				<div class="row">
+				  <div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="hero-text ht_top">
+						<h1><span>{% trans "Smart Study" %}</span> {% trans "Where Knowledge Meets the Web" %}</h1>
+						<p>{% trans "Lorem ipsum dolor sit amet, consectetur adipisicing elit, consectetur adipiscing elit tempor ut labore" %}</p>
+					</div>
+
+					{% include 'partials/header_search.html' %}
+
+				  </div><!--- END COL -->
+				  <div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="hero-text-img">
+						<img src="{% static 'assets/img/home-img2.png' %}" class="img-fluid" alt="" />
+					</div>					
+				  </div><!--- END COL -->						  
+				</div><!--- END ROW -->
+			</div><!--- END CONTAINER -->
+		</section>
+		<!-- END  HOME -->					
+
+	<!-- START CATEGORY -->
+	<section class="top_cat__area section-padding" style="background-image: url('{% static "assets/img/bg/shape-1.png" %}'); background-size:cover; background-position: center center;">
+		<div class="container">									
+			<div class="section-title text-center">
+				<h2>{% trans "Start your journey With us" %}</h2>
+				<p>{% trans "We offer a brand new approach to the most basic learning paradigms. Choose from a wide range of learning options and gain new skills! Our school is know." %}</p>
+			</div>						
+			<div class="row">					
+				<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+					<div class="single_tp">
+						<span class="sc_one">01</span>
+						<h3>{% trans "Expert" %} <br />{% trans "Teacher" %}</h3>
+						<p>{% trans "Lorem ipsum dolor sit amet, consectetur notted adipisicing elit ut labore." %}</p>
+					</div>
+				</div><!-- END COL -->			
+				<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+					<div class="single_tp">
+						<span class="sc_two">02</span>
+						<h3>{% trans "Quality" %} <br />{% trans "Education" %}</h3>
+						<p>{% trans "Lorem ipsum dolor sit amet, consectetur notted adipisicing elit ut labore." %}</p>
+					</div>
+				</div><!-- END COL -->			
+				<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
+					<div class="single_tp">
+						<span class="sc_three">03</span>
+						<h3>{% trans "Remote" %} <br />{% trans "Learning" %}</h3>
+						<p>{% trans "Lorem ipsum dolor sit amet, consectetur notted adipisicing elit ut labore." %}</p>
+					</div>
+				</div><!-- END COL -->	
+				<div class="col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s" data-wow-offset="0">
+					<div class="single_tp">
+						<span class="sc_four">04</span>
+						<h3>{% trans "Life Time" %} <br />{% trans "Support" %}</h3>
+						<p>{% trans "Lorem ipsum dolor sit amet, consectetur notted adipisicing elit ut labore." %}</p>
+					</div>
+				</div><!-- END COL -->							
+			</div><!-- END ROW -->
+		</div><!--- END CONTAINER -->
+	</section>
+	<!-- END CATEGORY -->		
+		
+	<!-- START ABOUT US -->
+	<section class="ab_area section-padding">
+		<div class="container">									
+			<div class="row">								
+				<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+					<div class="ab_img">
+						<img src="{% static 'assets/img/about1.png' %}" class="img-fluid" alt="image">
+					</div>
+				</div><!--- END COL -->						
+				<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+					<div class="ab_content">
+						<h2>{% trans "We Are Providing The Online Course In Global World" %}</h2>
+						<p>{% trans "We offer a brand new approach to the most basic learning paradigms. Choose from a wide range of learning options and gain new skills! Our school is know." %}</p>
+                        <p>{% trans "We offer a brand new approach to the most basic learning paradigms. Choose from a wide range of learning options and gain new skills! Our school is know." %}</p>
+						<ul>
+							<li><span class="ti-check"></span> {% trans "Get access to" %} <b>12,000+</b> {% trans "of our top courses" %}</li>
+							<li><span class="ti-check"></span> {% trans "Popular topic to learn now in our online courses for student" %}</li>
+							<li><span class="ti-check"></span> {% trans "Find the right instructor for you" %}</li>
+						</ul>
+
+					</div>
+				</div><!--- END COL -->							  
+			</div><!--- END ROW -->
+		</div><!--- END CONTAINER -->
+	</section>
+	<!-- END ABOUT US -->	
+	
+	<!-- START CATEGORY -->
+	<section class="top_cat__area section-padding" style="background-image: url('{% static "assets/img/bg/section-2.jpg" %}'); background-size:cover; background-position: center center;">
+		<div class="container">									
+			<div class="section-title text-center">
+				<h2>{% trans "Find out by popular Categories" %}</h2>
+				<p>{% trans "We offer a brand new approach to the most basic learning paradigms. Choose from a wide range of learning options and gain new skills! Our school is know." %}</p>
+			</div>						
+			<div class="row">													
+				<div class="col-lg-12 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+					<div class="cat_list">
+						<ul>
+							<li><a href="#"><img src="{% static 'assets/img/e1.png' %}" alt="category-image" />{% trans "Digital Marketing" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e2.png' %}" alt="category-image" /> {% trans "UI/UX Design" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e3.png' %}" alt="category-image" /> {% trans "3D Visual Design" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e4.png' %}" alt="category-image" /> {% trans "Content Marketing" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e5.png' %}" alt="category-image" /> {% trans "Photography" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e6.png' %}" alt="category-image" /> {% trans "Photo Lifestyle" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e7.png' %}" alt="category-image" /> {% trans "Art & Design" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e8.png' %}" alt="category-image" /> {% trans "Finance & Banking" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e9.png' %}" alt="category-image" /> {% trans "Graphic Design" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e2.png' %}" alt="category-image" /> {% trans "Interior Design" %}</a></li>
+							<li><a href="#"><img src="{% static 'assets/img/e3.png' %}" alt="category-image" /> {% trans "3D Visual Design" %}</a></li>	
+							<li><a href="#"><img src="{% static 'assets/img/e7.png' %}" alt="category-image" /> {% trans "Art & Design" %}</a></li>							
+						</ul>
+					</div>
+				</div><!--- END COL -->							  
+			</div><!--- END ROW -->
+		</div><!--- END CONTAINER -->
+	</section>
+	<!-- END CATEGORY -->			
+
+		<!-- START COURSE -->
+        <section class="home_course section-padding">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-8 col-sm-6 col-xs-12">            
+                    </div><!--- END COL -->
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="cour_btn">
+                            <h4><a href="{% url 'home' %}">{% trans "View All" %}</a></h4>
+                        </div>
+                    </div><!--- END COL -->
+                </div><!--- END ROW -->        
+                
+                <div class="row">
+                    {% for course in courses %}
+						<div class="col-lg-4 col-sm-6 col-xs-12">
+							{% include 'common/course_card.html' with course=course %}
+						</div><!-- END COL -->
+                    {% endfor %}
+                </div><!--- END ROW -->
+            </div><!--- END CONTAINER -->      
+        </section>
+        <!-- END COURSE -->		
+
+	<!-- START PROMO -->
+	<section class="ab_area section-padding">
+		<div class="container">									
+			<div class="row">													
+				<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0">
+					<div class="ab_content">
+						<h2>{% trans "Why Choose Us For Your Online Education Courses" %}</h2>
+						<p>We offer a brand new approach to the most basic learning paradigms. Choose from a wide range of learning options and gain new skills! Our school is know.</p>
+						<p>We offer a brand new approach to the most basic learning paradigms. Choose from a wide range of learning options and gain new skills! Our school is know.</p>
+						<ul>
+							<li><span class="ti-check"></span> {% blocktrans %}Get access to <b>12,000+</b> of our top courses{% endblocktrans %}</li>
+							<li><span class="ti-check"></span> {% trans "Popular topic to learn now in our online courses for student" %}</li>
+							<li><span class="ti-check"></span> {% trans "Find the right instructor for you" %}</li>
+						</ul>
+						<a class="btn_one" href="{% url 'category_all' %}">{% trans "View All Courses" %} <i class="ti-arrow-top-right"></i></a>
+					</div>
+				</div><!--- END COL -->	
+				<div class="col-lg-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0">
+					<div class="ab_img">
+						<img src="{% static 'assets/img/about3.png' %}" class="img-fluid" alt="image">
+
+					</div>
+				</div><!--- END COL -->					
+			</div><!--- END ROW -->
+		</div><!--- END CONTAINER -->
+	</section>
+	
+{% endblock %}

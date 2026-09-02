@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container my-5" dir="rtl">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold text-primary">{{ course.title }}</h2>
+        </div>
+    </div>
+
+    {% if sections %}
+        {% for section in sections %}
+            <div class="card shadow-sm mb-4 border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-dark fw-bold mb-0">{{ section.title }}</h4>
+                        <span class="badge bg-light text-secondary border p-2">
+                            {{ section.lessons.count }} {% trans "lesson" %}
+                        </span>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for lesson in section.lessons.all %}
+                            <a href="{% url 'lesson_detail' lesson.id %}" class="btn btn-outline-primary btn-sm px-3 py-2 rounded-pill">
+                                {{ lesson.title }}
+                            </a>
+                        {% empty %}
+                            <p class="text-muted small">{% trans "No lessons have been added to this section yet." %}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info text-center">
+            {% trans "There are currently no sections available for this course." %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

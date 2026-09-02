@@ -1,0 +1,120 @@
+{% load i18n %}
+{% load static %}
+
+<div id="navigation" class="navbar-light bg-faded site-navigation">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            
+            <div class="col-md-2 col-sm-3 align-self-center">
+                <div class="site-logo">
+                    <a href="{% url 'home' %}"> <img src="{% static 'assets/img/logo.png' %}" alt=""></a>                    
+                </div>
+            </div>
+            
+            <div class="col-md-7 col-sm-6 d-flex align-items-center">
+                <nav id="main-menu">
+                    <ul>
+                        <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                        <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>                          
+                        <li class="nav-item">
+                            <a href="{% url 'blog_list' %}" class="nav-link">{% trans "Blog" %}</a>
+                        </li>
+
+                        <li class="menu-item-has-children my-courses-menu">
+                            <a href="#">{% trans "My Courses" %}</a>
+                            <ul class="sub-menu my-courses-dropdown">
+                                {% if my_courses %}
+                                    {% for course in my_courses %}
+                                        <li>
+                                            <a href="{% url 'course_learn' course.id %}">
+                                                {{ course.name }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li>
+                                        <a href="#">{% trans "You haven't purchased any courses yet."%} </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children">
+                            <a href="#">{% trans "Language" %}</a>
+                            <ul>
+                                <li>
+                                    <form action="{% url 'set_language' %}" method="post" id="lang-en-form">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                                        <input name="language" type="hidden" value="en">
+                                        <a href="#" onclick="document.getElementById('lang-en-form').submit(); return false;">English</a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="{% url 'set_language' %}" method="post" id="lang-ar-form">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                                        <input name="language" type="hidden" value="ar">
+                                        <a href="#" onclick="document.getElementById('lang-ar-form').submit(); return false;">العربية</a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>                            
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-3 col-sm-3 d-flex justify-content-end align-items-center">
+                <nav id="main-menu" class="header-auth-menu">
+                    <ul style="margin: 0; padding: 0;">
+                        {% if user.is_authenticated %}
+                            <li class="menu-item-has-children" style="display: inline-block;">
+                                <a href="#">👤 {{ user.first_name|default:user.username }}</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <form action="{% url 'accounts:logout' %}" method="post" id="logout-form">
+                                            {% csrf_token %}
+                                            <a href="#" onclick="document.getElementById('logout-form').submit(); return false;" style="color: #dc3545;">
+                                                {% trans "Logout" %}
+                                            </a>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li style="display: inline-block; margin-right: 15px;">
+                                <a href="{% url 'accounts:login' %}">{% trans "Login" %}</a>
+                            </li>
+                            <li style="display: inline-block;">
+                                <a href="{% url 'accounts:register' %}">{% trans "Register" %}</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+
+            <ul class="mobile_menu">                    
+                <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>              
+                <li><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a>
+                    <ul class="sub-menu">                            
+                        <li><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
+                    </ul>
+                </li>                
+
+                {% if user.is_authenticated %}
+                    <li>
+                        <form action="{% url 'accounts:logout' %}" method="post" id="logout-form-mobile">
+                            {% csrf_token %}
+                            <a href="#" onclick="document.getElementById('logout-form-mobile').submit(); return false;">{% trans "Logout" %}</a>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}">{% trans "Login" %}</a></li>
+                    <li><a href="{% url 'accounts:register' %}">{% trans "Register" %}</a></li>
+                {% endif %}
+            </ul>      
+
+        </div>
+    </div>
+</div>

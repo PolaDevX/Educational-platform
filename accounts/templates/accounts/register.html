@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<style>
+    .register-section {
+        min-height: calc(100vh - 160px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        background: #f8f9fc;
+    }
+
+    .register-card {
+        width: 100%;
+        max-width: 620px;
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 40px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .register-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .register-header h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #101d50;
+        margin-bottom: 10px;
+    }
+
+    .register-header p {
+        color: #777;
+        margin-bottom: 0;
+    }
+
+    .register-form p {
+        margin-bottom: 20px;
+    }
+
+    .register-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #17204d;
+    }
+
+    .register-form input {
+        width: 100%;
+        height: 50px;
+        border: 1px solid #dfe3ea;
+        border-radius: 8px;
+        padding: 0 15px;
+        font-size: 15px;
+        outline: none;
+        transition: 0.3s;
+        box-sizing: border-box;
+    }
+
+    .register-form input:focus {
+        border-color: #4d5fe5;
+        box-shadow: 0 0 0 3px rgba(77, 95, 229, 0.10);
+    }
+
+    .register-form ul.errorlist {
+        list-style: none;
+        padding: 0;
+        margin: 7px 0 0;
+        color: #dc3545;
+        font-size: 13px;
+    }
+
+    .register-form .helptext {
+        display: block;
+        margin-top: 7px;
+        color: #888;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .register-button {
+        width: 100%;
+        height: 52px;
+        border: none;
+        border-radius: 8px;
+        background: #4d5fe5;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 5px;
+    }
+
+    .register-button:hover {
+        background: #394bd1;
+        transform: translateY(-1px);
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 0;
+        color: #777;
+    }
+
+    .login-link a {
+        color: #4d5fe5;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 576px) {
+        .register-section {
+            padding: 30px 15px;
+        }
+
+        .register-card {
+            padding: 25px 20px;
+        }
+
+        .register-header h2 {
+            font-size: 26px;
+        }
+    }
+</style>
+
+
+<section class="register-section" dir="rtl">
+
+    <div class="register-card">
+
+        <div class="register-header">
+            <h2>{% trans "Create a new account" %}</h2>
+            <p>{% trans "Create your account and start your learning journey with us." %}</p>
+        </div>
+
+        <form method="POST" class="register-form">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="register-button">
+               {% trans "Account Registration" %}
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            {% trans "already have an account?" %}
+            <a href="{% url 'accounts:login' %}">
+               {% trans "Login" %}
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

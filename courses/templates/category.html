@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <div class="section-title text-center my-4">
+        {% if category.name %}
+            <h2>{% trans "Category:" %} {{ category.name }}</h2>
+        {% else %}
+            <h2>{% trans "All Courses" %}</h2>
+        {% endif %}
+    </div>
+
+    <div class="container my-5">
+      <section>
+        <div class="row">
+          
+          <div class="col-md-3">
+            <div class="list-group">
+              <a href="{% url 'category_all' %}"
+                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                 {% trans "All Categories" %}
+              </a>
+              
+              {% for cat in categories %}
+                  <a href="{% url 'category_courses' cat.id %}"
+                     class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    {{ cat.name }}
+                  </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="col-md-9">
+            <div class="row">
+              {% for course in page_obj %}
+                <div class="col-md-4 mb-4">
+                    <div class="single_course">
+                        <div class="single_c_img">
+                            {% if course.image %}
+                                <img src="{{ course.image.url }}" class="img-fluid" alt="{{ course.name }}" />
+                            {% else %}
+                                <img src="{% static 'assets/img/course/1.png' %}" class="img-fluid" alt="{{ course.name }}" />
+                            {% endif %}
+                            <span>{{ course.category.name }}</span>
+                        </div>
+                        <h4><a href="{% url 'course_detail' course.id %}">{{ course.name }}</a></h4>
+                        <p><span class="ti-book"> </span> {{ course.lessons_count }} Lessons</p>
+                        <div class="price">Course Fee - ${{ course.price }}</div>
+                    </div>
+                </div>
+              {% empty %}
+                  <div class="col-12">
+                      <div class="card mb-4 text-center p-4">
+                          <div class="card-title text-muted">
+                              {% trans "We were not able to find any course." %}
+                          </div>
+                      </div>
+                  </div>
+              {% endfor %}
+            </div>
+
+            {% if page_obj.paginator.count > 0 %}
+                <nav class="mt-4">
+                  <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
+                      </li>
+                    {% else %}
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{% trans "Previous" %}</a>
+                      </li> 
+                    {% endif %}
+                    
+                    {% if page_obj.has_next %}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+                      </li>
+                    {% else %}
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{% trans "Next" %}</a>
+                      </li> 
+                    {% endif %}
+                  </ul>
+                </nav>
+            {% endif %}
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <style>
+    html, body {
+        width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .course-details-section {
+        display: block !important;
+        width: 100% !important;
+        min-height: 80vh !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        clear: both !important;
+    }
+
+    .course-details-section .container {
+        max-width: 1140px !important;
+        width: 100% !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+
+    .course-details-section .row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-right: -15px !important;
+        margin-left: -15px !important;
+    }
+
+    @media (min-width: 992px) {
+        .course-details-section .col-lg-8 {
+            flex: 0 0 66.666667% !important;
+            max-width: 66.666667% !important;
+        }
+        .course-details-section .col-lg-4 {
+            flex: 0 0 33.333333% !important;
+            max-width: 33.333333% !important;
+        }
+    }
+    </style>
+{% endblock %}

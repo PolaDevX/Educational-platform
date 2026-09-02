@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="container my-5" dir="rtl">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'blog_list' %}">{% trans "Blog" %}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+                </ol>
+            </nav>
+
+            <h1 class="fw-bold text-primary mb-3">{{ post.title }}</h1>
+            <p class="text-muted mb-4">كتب بواسطة: <span class="fw-bold text-dark">{{ post.author.username }}</span> | بتاريخ: {{ post.created_at|date:"Y-m-d H:i" }}</p>
+
+            {% if post.image %}
+                <div class="mb-4">
+                    <img src="{{ post.image.url }}" class="img-fluid rounded shadow-sm w-100" alt="{{ post.title }}" style="max-height: 400px; object-fit: cover;">
+                </div>
+            {% endif %}
+
+            <div class="card shadow-sm border-0 p-4 mb-4">
+                <div class="text-secondary" style="line-height: 1.8; white-space: pre-line;">
+                    {{ post.content }}
+                </div>
+            </div>
+
+            <div class="text-end">
+                <a href="{% url 'blog_list' %}" class="btn btn-secondary px-4">{% trans "Return to the blog"%}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

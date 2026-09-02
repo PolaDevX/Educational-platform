@@ -1,0 +1,7 @@
+{% load i18n %}
+<div class="home_sb">
+    <form action="{% url 'category_all' %}" method="GET" class="banner_subs">
+        <input type="text" name="query" class="form-control home_si" value="{{ request.GET.query }}" placeholder="Search your course here" required="required">
+        <button type="submit" class="subscribe__btn">Search <i class="fa fa-paper-plane-o"></i></button>
+    </form>
+</div>

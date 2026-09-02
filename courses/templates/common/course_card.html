@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load my_filters %}
+
+<div class="single_course">
+    <div class="single_c_img">
+        <img src="{{ course.image.url }}" class="img-fluid" alt="course-image" />
+    </div>
+    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+    
+    <h4><a href="{% url 'course_detail' course.id %}">{{ course.name }}</a></h4>
+    
+    <p><span class="ti-alarm-clock"> </span>{{ course.duration }}</p>
+    <div class="price">{{ course.price|currency }}</div>
+</div>

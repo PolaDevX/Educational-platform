@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="about-page" dir="rtl">
+
+    <div class="bg-primary text-white py-5 mb-5 rounded-bottom-5 shadow-sm" style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);">
+        <div class="container text-center py-4">
+            <h1 class="fw-bold display-4 mb-3">{% trans "About the Eduleb Platform" %}</h1>
+            <p class="lead fw-light col-lg-8 mx-auto opacity-9" style="line-height: 1.8;">
+                {% if about_info and about_info.description %}
+                    {{ about_info.description }}
+                {% else %}
+                    {% trans "An educational platform aiming to provide simplified, high-quality educational content that helps students acquire knowledge and skills in an easy and flexible manner." %}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100 rounded-4 p-4 position-relative overflow-hidden border-top border-primary border-4">
+                    <div class="card-body">
+                        <div class="mb-3 text-primary">
+                            <i class="fas fa-bullseye fa-2x"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-3">{% trans "Our Goal" %}</h3>
+                        <p class="text-secondary fs-6" style="line-height: 1.9; white-space: pre-line;">
+                            {% if about_info and about_info.our_mission %}
+                                {{ about_info.our_mission }}
+                            {% else %}
+                                {% trans "Our goal is to make online learning more accessible and clear, and to provide educational content that helps learners develop themselves step by step." %}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100 rounded-4 p-4 position-relative overflow-hidden border-top border-success border-4">
+                    <div class="card-body">
+                        <div class="mb-3 text-success">
+                            <i class="fas fa-laptop-code fa-2x"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-3">{% trans "What do we offer?" %}</h3>
+                        <p class="text-secondary fs-6" style="line-height: 1.9; white-space: pre-line;">
+                            {% if about_info and about_info.what_we_offer %}
+                                {{ about_info.what_we_offer }}
+                            {% else %}
+                                {% trans "Through Eduleb, you can access a variety of educational courses, as well as articles and useful content on our blog." %}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center my-5 pt-4">
+            <div class="col-12 mb-4">
+                <span class="text-primary fw-bold text-uppercase small tracking-wide">{% trans "Testimonials" %}</span>
+                <h2 class="fw-bold text-dark mt-1">{% trans "Our Students' Opinions" %}</h2>
+                <p class="text-muted">{% trans "Real-life experiences of students who acquired new skills and achieved tangible results after joining our programs." %}</p>
+            </div>
+            
+            <div class="col-lg-8 mx-auto">
+                {% if reviews %}
+                <div id="studentReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner py-3">
+                        {% for review in reviews %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="card shadow border-0 p-4 p-md-5 bg-white rounded-4 text-center mx-2">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    
+                                    {% if review.student_image %}
+                                    <img src="{{ review.student_image.url }}" alt="{{ review.student_name }}" class="rounded-circle mb-3 shadow" style="width: 85px; height: 85px; object-fit: cover; border: 3px solid #0d6efd;">
+                                    {% endif %}
+                                    
+                                    <h4 class="fw-bold text-dark mb-1">{{ review.student_name }}</h4>
+                                    
+                                    {% if review.student_title %}
+                                    <span class="badge bg-light text-primary border px-3 py-1 rounded-pill mb-3 small">{{ review.student_title }}</span>
+                                    {% endif %}
+                                    
+                                    <p class="text-secondary fs-5 fst-italic px-md-3 mt-2" style="line-height: 1.8;">
+                                        "{{ review.review_text }}"
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <button class="carousel-control-prev" type="button" data-bs-target="#studentReviewsCarousel" data-bs-slide="prev" style="width: 5%;">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#studentReviewsCarousel" data-bs-slide="next" style="width: 5%;">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                {% else %}
+                <div class="card border-0 bg-light p-4 rounded-4">
+                    <p class="text-muted mb-0">{% trans "There are currently no reviews added from the control panel." %}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

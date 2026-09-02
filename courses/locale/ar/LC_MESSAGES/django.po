@@ -1,0 +1,493 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-01 22:19+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\courses\models.py:20 .\courses\templates\course_details.html:34
+msgid "Category"
+msgstr "فئة"
+
+#: .\courses\models.py:21
+msgid "Categories"
+msgstr "فئات"
+
+#: .\courses\models.py:33 .\courses\templates\course_details.html:29
+#: .\courses\templates\index.html:43
+msgid "Teacher"
+msgstr "مدرس"
+
+#: .\courses\models.py:34
+msgid "Teachers"
+msgstr "المعلمون"
+
+#: .\courses\models.py:53
+msgid "Course"
+msgstr "دورة"
+
+#: .\courses\models.py:54 .\courses\templates\course_details.html:14
+msgid "Courses"
+msgstr "دورات"
+
+#: .\courses\models.py:78
+msgid "Order"
+msgstr "طلب"
+
+#: .\courses\models.py:79
+msgid "Orders"
+msgstr "الطلبات"
+
+#: .\courses\models.py:105
+#, fuzzy
+#| msgid "Education"
+msgid "Section"
+msgstr "تعليم"
+
+#: .\courses\models.py:106
+msgid "Sections"
+msgstr "الأقسام"
+
+#: .\courses\models.py:121
+msgid "Lesson"
+msgstr "درس"
+
+#: .\courses\models.py:122
+msgid "Lessons"
+msgstr "دروس"
+
+#: .\courses\models.py:160
+msgid "AboutPageContent"
+msgstr "محتوى صفحة عن الموقع"
+
+#: .\courses\models.py:161
+msgid "About Page Contents"
+msgstr "محتوى صفحة عن الموقع"
+
+#: .\courses\templates\about.html:10
+msgid "About the Eduleb Platform"
+msgstr "نبذة عن منصة Eduleb"
+
+#: .\courses\templates\about.html:15
+msgid ""
+"An educational platform aiming to provide simplified, high-quality "
+"educational content that helps students acquire knowledge and skills in an "
+"easy and flexible manner."
+msgstr ""
+"منصة تعليمية تهدف إلى تقديم محتوى تعليمي مبسط وعالي الجودة، يساعد الطلاب على "
+"اكتساب المعرفة والمهارات بأسلوب سهل ومرن."
+
+#: .\courses\templates\about.html:30
+msgid "Our Goal"
+msgstr "هدفنا"
+
+#: .\courses\templates\about.html:35
+msgid ""
+"Our goal is to make online learning more accessible and clear, and to "
+"provide educational content that helps learners develop themselves step by "
+"step."
+msgstr ""
+"يتمثل هدفنا في جعل التعلم عبر الإنترنت أكثر سهولة ووضوحاً، وتوفير محتوى "
+"تعليمي يساعد المتعلمين على تطوير أنفسهم خطوة بخطوة."
+
+#: .\courses\templates\about.html:48
+msgid "What do we offer?"
+msgstr "ماذا نقدم؟"
+
+#: .\courses\templates\about.html:53
+msgid ""
+"Through Eduleb, you can access a variety of educational courses, as well as "
+"articles and useful content on our blog."
+msgstr ""
+"من خلال Eduleb، يمكنك الوصول إلى مجموعة متنوعة من الدورات التعليمية، "
+"بالإضافة إلى المقالات والمحتوى المفيد على مدونتنا."
+
+#: .\courses\templates\about.html:63
+msgid "Testimonials"
+msgstr "شهادات العملاء"
+
+#: .\courses\templates\about.html:64
+msgid "Our Students' Opinions"
+msgstr "آراء طلابنا"
+
+#: .\courses\templates\about.html:65
+msgid ""
+"Real-life experiences of students who acquired new skills and achieved "
+"tangible results after joining our programs."
+msgstr ""
+"تجارب واقعية لطلاب اكتسبوا مهارات جديدة وحققوا نتائج ملموسة بعد الانضمام إلى "
+"برامجنا."
+
+#: .\courses\templates\about.html:108
+msgid "There are currently no reviews added from the control panel."
+msgstr "لا توجد حالياً أي مراجعات مضافة من لوحة التحكم."
+
+#: .\courses\templates\category.html:8
+msgid "Category:"
+msgstr "فئة"
+
+#: .\courses\templates\category.html:10
+msgid "All Courses"
+msgstr "جميع الدورات"
+
+#: .\courses\templates\category.html:22
+msgid "All Categories"
+msgstr "جميع الفئات"
+
+#: .\courses\templates\category.html:56
+msgid "We were not able to find any course."
+msgstr "لم نتمكن من العثور على أي دورة تدريبية."
+
+#: .\courses\templates\category.html:68 .\courses\templates\category.html:72
+msgid "Previous"
+msgstr "سابق"
+
+#: .\courses\templates\category.html:78 .\courses\templates\category.html:82
+msgid "Next"
+msgstr "التالي"
+
+#: .\courses\templates\checkout.html:13
+#: .\courses\templates\course_details.html:51
+msgid "Enroll Now"
+msgstr "سجّل الآن"
+
+#: .\courses\templates\checkout.html:15
+msgid "Instant Access After Payment."
+msgstr "وصول فوري بعد الدفع."
+
+#: .\courses\templates\checkout.html:22
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+#: .\courses\templates\checkout.html:23
+msgid "Enter your full name"
+msgstr "أدخل اسمك الكامل"
+
+#: .\courses\templates\checkout.html:28
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#: .\courses\templates\checkout.html:35
+msgid "Click below to proceed with payment"
+msgstr "انقر أدناه للمتابعة وإتمام الدفع"
+
+#: .\courses\templates\checkout.html:43
+msgid "Credit Card"
+msgstr "بطاقة إئتمان"
+
+#: .\courses\templates\checkout.html:53
+msgid "Pay Now"
+msgstr "ادفع الآن"
+
+#: .\courses\templates\checkout.html:64
+msgid "30-day money-back guarantee"
+msgstr "ضمان استرداد الأموال خلال 30 يوماً"
+
+#: .\courses\templates\course_details.html:13
+#: .\courses\templates\partials\header.html:17
+#: .\courses\templates\partials\header.html:97
+msgid "Home"
+msgstr "الصفحه الرئيسية"
+
+#: .\courses\templates\course_details.html:40
+msgid "About This Course"
+msgstr "نبذة عن هذه الدورة"
+
+#: .\courses\templates\course_details.html:55
+msgid "Go to watch the course"
+msgstr "الانتقال إلى مشاهدة الكورس"
+
+#: .\courses\templates\course_details.html:59
+msgid "Subscribe now for only"
+msgstr "اشترك الآن مقابل"
+
+#: .\courses\templates\course_learn.html:19
+#, fuzzy
+#| msgid "Lesson"
+msgid "lesson"
+msgstr "درس"
+
+#: .\courses\templates\course_learn.html:29
+msgid "No lessons have been added to this section yet."
+msgstr "لم تتم إضافة أي دروس إلى هذا القسم بعد."
+
+#: .\courses\templates\course_learn.html:37
+#, fuzzy
+#| msgid "There are currently no reviews added from the control panel."
+msgid "There are currently no sections available for this course."
+msgstr "لا توجد حالياً أي مراجعات مضافة من لوحة التحكم."
+
+#: .\courses\templates\index.html:15
+msgid "Smart Study"
+msgstr "الدراسة الذكية"
+
+#: .\courses\templates\index.html:15
+msgid "Where Knowledge Meets the Web"
+msgstr "حيث تلتقي المعرفة بالويب"
+
+#: .\courses\templates\index.html:16
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, consectetur "
+"adipiscing elit tempor ut labore"
+msgstr ""
+
+#: .\courses\templates\index.html:36
+msgid "Start your journey With us"
+msgstr "ابدأ رحلتك معنا"
+
+#: .\courses\templates\index.html:37 .\courses\templates\index.html:85
+#: .\courses\templates\index.html:86 .\courses\templates\index.html:105
+msgid ""
+"We offer a brand new approach to the most basic learning paradigms. Choose "
+"from a wide range of learning options and gain new skills! Our school is "
+"know."
+msgstr ""
+"نُقدّم نهجًا جديدًا كليًا لأبسط نماذج التعلّم. اختر من بين مجموعة واسعة من خيارات "
+"التعلّم واكتسب مهارات جديدة! مدرستنا معروفة."
+
+#: .\courses\templates\index.html:43
+msgid "Expert"
+msgstr ""
+"نُقدّم نهجًا جديدًا كليًا لأبسط نماذج التعلّم. اختر من بين مجموعة واسعة من خيارات "
+"التعلّم واكتسب مهارات جديدة! مدرستنا معروفة."
+
+#: .\courses\templates\index.html:44 .\courses\templates\index.html:51
+#: .\courses\templates\index.html:58 .\courses\templates\index.html:65
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur notted adipisicing elit ut labore."
+msgstr ""
+
+#: .\courses\templates\index.html:50
+msgid "Quality"
+msgstr "جودة"
+
+#: .\courses\templates\index.html:50
+msgid "Education"
+msgstr "تعليم"
+
+#: .\courses\templates\index.html:57
+msgid "Remote"
+msgstr "بعيد"
+
+#: .\courses\templates\index.html:57
+msgid "Learning"
+msgstr "تعلُّم"
+
+#: .\courses\templates\index.html:64
+msgid "Life Time"
+msgstr "حياة"
+
+#: .\courses\templates\index.html:64
+msgid "Support"
+msgstr "يدعم"
+
+#: .\courses\templates\index.html:84
+msgid "We Are Providing The Online Course In Global World"
+msgstr "نقدم هذه الدورة التدريبية عبر الإنترنت على مستوى العالم."
+
+#: .\courses\templates\index.html:88
+msgid "Get access to"
+msgstr "احصل على إمكانية الوصول إلى"
+
+#: .\courses\templates\index.html:88
+msgid "of our top courses"
+msgstr "من أفضل دوراتنا"
+
+#: .\courses\templates\index.html:89 .\courses\templates\index.html:166
+msgid "Popular topic to learn now in our online courses for student"
+msgstr "موضوع شائع للتعلم حالياً في دوراتنا عبر الإنترنت المخصصة للطلاب."
+
+#: .\courses\templates\index.html:90 .\courses\templates\index.html:167
+msgid "Find the right instructor for you"
+msgstr "اعثر على المدرب المناسب لك"
+
+#: .\courses\templates\index.html:104
+msgid "Find out by popular Categories"
+msgstr "اكتشف حسب الفئات الشائعة"
+
+#: .\courses\templates\index.html:111
+msgid "Digital Marketing"
+msgstr "التسويق الرقمي"
+
+#: .\courses\templates\index.html:112
+msgid "UI/UX Design"
+msgstr "تصميم واجهة وتجربة المستخدم"
+
+#: .\courses\templates\index.html:113 .\courses\templates\index.html:121
+msgid "3D Visual Design"
+msgstr "التصميم المرئي ثلاثي الأبعاد"
+
+#: .\courses\templates\index.html:114
+#, fuzzy
+#| msgid "Digital Marketing"
+msgid "Content Marketing"
+msgstr "التسويق الرقمي"
+
+#: .\courses\templates\index.html:115
+msgid "Photography"
+msgstr "التصوير الفوتوغرافي"
+
+#: .\courses\templates\index.html:116
+msgid "Photo Lifestyle"
+msgstr "نمط الحياة المصوَّر"
+
+#: .\courses\templates\index.html:117 .\courses\templates\index.html:122
+msgid "Art & Design"
+msgstr "الفن والتصميم"
+
+#: .\courses\templates\index.html:118
+msgid "Finance & Banking"
+msgstr "المالية والمصرفية"
+
+#: .\courses\templates\index.html:119
+msgid "Graphic Design"
+msgstr "التصميم الجرافيكي"
+
+#: .\courses\templates\index.html:120
+msgid "Interior Design"
+msgstr "التصميم الداخلي"
+
+#: .\courses\templates\index.html:139
+msgid "View All"
+msgstr "عرض الكل"
+
+#: .\courses\templates\index.html:161
+msgid "Why Choose Us For Your Online Education Courses"
+msgstr "لماذا تختارنا لدوراتك التعليمية عبر الإنترنت؟"
+
+#: .\courses\templates\index.html:165
+msgid "Get access to <b>12,000+</b> of our top courses"
+msgstr "احصل على إمكانية الوصول إلى أكثر من 12,000 من أفضل دوراتنا"
+
+#: .\courses\templates\index.html:169
+#, fuzzy
+#| msgid "All Courses"
+msgid "View All Courses"
+msgstr "جميع الدورات"
+
+#: .\courses\templates\lesson_detail.html:15
+msgid "Your browser does not support video playback."
+msgstr "متصفحك لا يدعم تشغيل الفيديو."
+
+#: .\courses\templates\lesson_detail.html:19
+#, fuzzy
+#| msgid "There are currently no reviews added from the control panel."
+msgid "There is currently no video available for this session."
+msgstr "لا توجد حالياً أي مراجعات مضافة من لوحة التحكم."
+
+#: .\courses\templates\lesson_detail.html:27
+#, fuzzy
+#| msgid "Enrollments"
+msgid "Comments"
+msgstr "التعليقات"
+
+#: .\courses\templates\lesson_detail.html:48
+msgid "Write your reply here..."
+msgstr "اكتب ردك هنا..."
+
+#: .\courses\templates\lesson_detail.html:50
+msgid "Send Reply"
+msgstr "إرسال الرد"
+
+#: .\courses\templates\lesson_detail.html:70
+msgid "No comments yet. Be the first to comment!"
+msgstr "لا توجد تعليقات بعد. كن أول من يعلّق!"
+
+#: .\courses\templates\lesson_detail.html:80
+msgid "Write your comment or question about the lesson..."
+msgstr "اكتب تعليقك أو سؤالك حول الدرس..."
+
+#: .\courses\templates\lesson_detail.html:82
+msgid "Send Comment"
+msgstr "إرسال تعليق"
+
+#: .\courses\templates\lesson_detail.html:86
+msgid "You must"
+msgstr "يجب عليك أن"
+
+#: .\courses\templates\lesson_detail.html:86
+#: .\courses\templates\partials\header.html:86
+#: .\courses\templates\partials\header.html:113
+msgid "Login"
+msgstr "تسجل الدخول"
+
+#: .\courses\templates\lesson_detail.html:86
+msgid "To be able to write a comment."
+msgstr "لتتمكن من كتابة تعليق."
+
+#: .\courses\templates\partials\footer.html:5
+msgid "© 2026 Pola. All rights reserved."
+msgstr "© 2026 Pola. جميع الحقوق محفوظة."
+
+#: .\courses\templates\partials\header.html:18
+#: .\courses\templates\partials\header.html:98
+msgid "About"
+msgstr "عن الموقع"
+
+#: .\courses\templates\partials\header.html:20
+#: .\courses\templates\partials\header.html:99
+#: .\courses\templates\partials\header.html:101
+msgid "Blog"
+msgstr "مدونة"
+
+#: .\courses\templates\partials\header.html:24
+msgid "My Courses"
+msgstr "دوراتي المشتركة"
+
+#: .\courses\templates\partials\header.html:36
+msgid "You haven't purchased any courses yet."
+msgstr "لم تشترِ أي دورات بعد."
+
+#: .\courses\templates\partials\header.html:43
+msgid "Language"
+msgstr "اللغة"
+
+#: .\courses\templates\partials\header.html:78
+#: .\courses\templates\partials\header.html:109
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\courses\templates\partials\header.html:89
+#: .\courses\templates\partials\header.html:114
+msgid "Register"
+msgstr "إنشاء حساب"
+
+#: .\courses\views.py:204
+msgid "The course has been added to your cart"
+msgstr "تمت إضافة الدورة التدريبية إلى عربة التسوق الخاصة بك."
+
+#: .\courses\views.py:225
+msgid "The course has been removed from your cart"
+msgstr "تمت إزالة الدورة التدريبية من عربة التسوق الخاصة بك."
+
+#~ msgid ""
+#~ "As soon as you purchase the course, the details will be sent to you via "
+#~ "email."
+#~ msgstr "بمجرد شراء الدورة، سيتم إرسال التفاصيل إليك عبر البريد الإلكتروني."
+
+#~ msgid ""
+#~ "Apologies, replies are restricted to teachers and the platform "
+#~ "administration."
+#~ msgstr "نعتذر، فالردود مقتصرة على المعلمين وإدارة المنصة."
+
+#~ msgid "Blog Details"
+#~ msgstr "تفاصيل المدونة"
+
+#, fuzzy
+#~| msgid "Enroll Now"
+#~ msgid "Enrollment"
+#~ msgstr "سجّل الآن"

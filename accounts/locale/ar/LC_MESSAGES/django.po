@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-31 23:51+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\accounts\templates\accounts\login.html:134
+#: .\accounts\templates\accounts\login.html:145
+#: .\accounts\templates\accounts\register.html:162
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\accounts\templates\accounts\login.html:135
+msgid "Welcome back to Ed uleb."
+msgstr "مرحبًا بكم مجددًا في Ed uleb."
+
+#: .\accounts\templates\accounts\login.html:151
+msgid "Don't have an account?"
+msgstr "أليس لديك حساب؟"
+
+#: .\accounts\templates\accounts\login.html:153
+#: .\accounts\templates\accounts\register.html:143
+msgid "Create a new account"
+msgstr "إنشاء حساب جديد"
+
+#: .\accounts\templates\accounts\register.html:144
+msgid "Create your account and start your learning journey with us."
+msgstr "أنشئ حسابك وابدأ رحلة التعلم معنا."
+
+#: .\accounts\templates\accounts\register.html:154
+msgid "Account Registration"
+msgstr "تسجيل الحساب"
+
+#: .\accounts\templates\accounts\register.html:160
+msgid "already have an account?"
+msgstr "هل لديك حساب بالفعل؟"

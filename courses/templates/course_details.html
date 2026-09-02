@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load my_filters %}
+{% block content %}
+
+<section class="course-details-section py-5" style="background-color: #f8f9fa;">
+    
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb bg-transparent p-0">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none text-muted">{% trans "Home" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'category_all' %}" class="text-decoration-none text-muted">{% trans "Courses" %}</a></li>
+                <li class="breadcrumb-item active text-primary fw-bold" aria-current="page">{{ course.name }}</li>
+            </ol>
+        </nav>
+
+        <div class="row g-4">
+            
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm p-4 rounded-4 bg-white mb-4">
+                    
+                    <h1 class="fw-bold text-dark mb-3" style="font-size: 2rem;">{{ course.name }}</h1>
+                    
+                    <div class="d-flex flex-wrap gap-3 mb-4 text-muted border-bottom pb-3">
+                        <div>
+                            <i class="fa-solid fa-user-tie text-primary me-2"></i>
+                            <strong>{% trans "Teacher" %}:</strong> 
+                            <span class="text-dark">{{ course.teacher|default:"غير محدد" }}</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-layer-group text-success me-2"></i>
+                            <strong>{% trans "Category" %}:</strong> 
+                            <span class="badge bg-light text-dark border px-2 py-1">{{ course.category.name }}</span>
+                        </div>
+                    </div>
+
+                    <div class="course-description">
+                        <h4 class="fw-semibold text-secondary mb-3">{% trans "About This Course" %}</h4>
+                        <p class="text-muted lh-lg" style="text-align: justify; font-size: 1.05rem;">
+                            {{ course.description }}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 bg-white p-4 text-center">
+                    <h3 class="fw-bold text-danger mb-3" style="font-size: 1.5rem;">{% trans "Enroll Now" %}</h3>
+
+                    {% if has_bought %}
+                        <a href="{% url 'course_learn' course.id %}" class="btn btn-success w-100 py-3 fw-bold rounded shadow-sm text-white border-0">
+                            <i class="fa-solid fa-play-circle me-2"></i>{% trans "Go to watch the course" %}
+                        </a>
+                    {% else %}
+                        <a href="{% url 'buy_now' course.id %}" class="btn btn-danger w-100 py-3 fw-bold rounded shadow-sm text-white" style="background-color: #2936e7; border: none;">
+                            {% trans "Subscribe now for only" %} {{ course.price|currency }}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+ <style>
+html, body {
+    width: 100% !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.course-details-section {
+    display: block !important;
+    width: 100% !important;
+    min-height: 80vh !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    clear: both !important;
+}
+
+.course-details-section .container {
+    max-width: 1140px !important;
+    width: 100% !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
+
+.course-details-section .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
+@media (min-width: 992px) {
+    .course-details-section .col-lg-8 {
+        flex: 0 0 66.666667% !important;
+        max-width: 66.666667% !important;
+    }
+    .course-details-section .col-lg-4 {
+        flex: 0 0 33.333333% !important;
+        max-width: 33.333333% !important;
+    }
+}
+</style>
+{% endblock %}
