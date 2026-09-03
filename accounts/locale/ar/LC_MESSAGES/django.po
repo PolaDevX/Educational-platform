@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-31 23:51+0300\n"
+"POT-Creation-Date: 2026-09-03 17:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,21 +19,41 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\accounts\templates\accounts\login.html:134
-#: .\accounts\templates\accounts\login.html:145
+#: .\accounts\forms.py:9
+msgid "Email address"
+msgstr "البريد الإلكتروني"
+
+#: .\accounts\forms.py:14
+msgid "First name"
+msgstr "الاسم الأول"
+
+#: .\accounts\forms.py:19
+msgid "Last name"
+msgstr "الاسم الأخير"
+
+#: .\accounts\forms.py:26
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: .\accounts\forms.py:32
+msgid "This email address is already registered."
+msgstr "هذا البريد الإلكتروني مُسجل بالفعل."
+
+#: .\accounts\templates\accounts\login.html:135
+#: .\accounts\templates\accounts\login.html:146
 #: .\accounts\templates\accounts\register.html:162
 msgid "Login"
 msgstr "تسجيل الدخول"
 
-#: .\accounts\templates\accounts\login.html:135
+#: .\accounts\templates\accounts\login.html:136
 msgid "Welcome back to Ed uleb."
 msgstr "مرحبًا بكم مجددًا في Ed uleb."
 
-#: .\accounts\templates\accounts\login.html:151
+#: .\accounts\templates\accounts\login.html:156
 msgid "Don't have an account?"
 msgstr "أليس لديك حساب؟"
 
-#: .\accounts\templates\accounts\login.html:153
+#: .\accounts\templates\accounts\login.html:158
 #: .\accounts\templates\accounts\register.html:143
 msgid "Create a new account"
 msgstr "إنشاء حساب جديد"
