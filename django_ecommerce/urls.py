@@ -18,10 +18,9 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
-from django.urls import path
 import os
 
-ADMIN_URL = os.environ.get('ADMIN_URL', 'admin/')
+ADMIN_URL = os.environ.get('ADMIN_URL')
 
 urlpatterns = [
     path('', include('courses.urls')),
