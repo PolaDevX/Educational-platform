@@ -2795,6 +2795,12 @@ font-weight: 700;
 	font-weight: 700;
 	font-size: 50px;
 }
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
 .section-top-title ul {}
 .section-top-title ul li {color: #0b104a !important;display: inline-block; }
 .section-top-title ul li a { color: #525fe1!important;font-weight: 600; }
