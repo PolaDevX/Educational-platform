@@ -15,8 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
-
-load_dotenv()
+load_dotenv(BASE_DIR / '.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -131,7 +130,7 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = 'DENY'
-    SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = False
 
 
 # Password validation
@@ -191,7 +190,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 CURRENCY = 'USD'
 
@@ -208,7 +207,7 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '2525'
 
-SITE_URL = 'http://127.0.0.1:8000'
+SITE_URL = 'https://pola2010.pythonanywhere.com'
 
 # Stripe
 
