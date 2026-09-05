@@ -11,7 +11,12 @@
                 <div class="error_page">
                     <img src="{% static 'assets/img/404.svg' %}" class="img-fluid" alt="404 error" />
                     <h2>Oops! Page not found</h2>
-                    <p>Hmm. We’re having trouble finding that site. Try again later or Check your network connection.</p>  
+                    <p>Hmm. We’re having trouble finding that site. Try again later or Check your network connection.</p>
+                    <div class="home_btn">
+                        <a href="{% url 'home' %}" class="btn btn-primary">
+							Back to Home
+						</a>
+                    </div>  
                 </div>
             </div><!--- END COL -->                 
         </div><!--- END ROW -->
