@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
+from django.urls import path
+import os
 
 urlpatterns = [
     path('', include('courses.urls')),
-    path('admin/', admin.site.urls),
+    path(ADMIN_URL, admin.site.urls),
     path('checkout/', include('checkout.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('blog/', include('blog.urls')),
