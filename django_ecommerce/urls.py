@@ -21,6 +21,8 @@ from django.urls import path, include
 from django.urls import path
 import os
 
+ADMIN_URL = os.environ.get('ADMIN_URL', 'admin/')
+
 urlpatterns = [
     path('', include('courses.urls')),
     path(ADMIN_URL, admin.site.urls),
