@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-01 22:19+0300\n"
+"POT-Creation-Date: 2026-09-06 13:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgid "Categories"
 msgstr "فئات"
 
 #: .\courses\models.py:33 .\courses\templates\course_details.html:29
-#: .\courses\templates\index.html:43
+#: .\courses\templates\index.html:41
 msgid "Teacher"
 msgstr "مدرس"
 
@@ -231,26 +231,26 @@ msgstr "لم تتم إضافة أي دروس إلى هذا القسم بعد."
 msgid "There are currently no sections available for this course."
 msgstr "لا توجد حالياً أي مراجعات مضافة من لوحة التحكم."
 
-#: .\courses\templates\index.html:15
+#: .\courses\templates\index.html:13
 msgid "Smart Study"
 msgstr "الدراسة الذكية"
 
-#: .\courses\templates\index.html:15
+#: .\courses\templates\index.html:13
 msgid "Where Knowledge Meets the Web"
 msgstr "حيث تلتقي المعرفة بالويب"
 
-#: .\courses\templates\index.html:16
+#: .\courses\templates\index.html:14
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipisicing elit, consectetur "
 "adipiscing elit tempor ut labore"
 msgstr ""
 
-#: .\courses\templates\index.html:36
+#: .\courses\templates\index.html:34
 msgid "Start your journey With us"
 msgstr "ابدأ رحلتك معنا"
 
-#: .\courses\templates\index.html:37 .\courses\templates\index.html:85
-#: .\courses\templates\index.html:86 .\courses\templates\index.html:105
+#: .\courses\templates\index.html:35 .\courses\templates\index.html:83
+#: .\courses\templates\index.html:84 .\courses\templates\index.html:103
 msgid ""
 "We offer a brand new approach to the most basic learning paradigms. Choose "
 "from a wide range of learning options and gain new skills! Our school is "
@@ -259,121 +259,117 @@ msgstr ""
 "نُقدّم نهجًا جديدًا كليًا لأبسط نماذج التعلّم. اختر من بين مجموعة واسعة من خيارات "
 "التعلّم واكتسب مهارات جديدة! مدرستنا معروفة."
 
-#: .\courses\templates\index.html:43
+#: .\courses\templates\index.html:41
 msgid "Expert"
 msgstr ""
 "نُقدّم نهجًا جديدًا كليًا لأبسط نماذج التعلّم. اختر من بين مجموعة واسعة من خيارات "
 "التعلّم واكتسب مهارات جديدة! مدرستنا معروفة."
 
-#: .\courses\templates\index.html:44 .\courses\templates\index.html:51
-#: .\courses\templates\index.html:58 .\courses\templates\index.html:65
+#: .\courses\templates\index.html:42 .\courses\templates\index.html:49
+#: .\courses\templates\index.html:56 .\courses\templates\index.html:63
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur notted adipisicing elit ut labore."
 msgstr ""
 
-#: .\courses\templates\index.html:50
+#: .\courses\templates\index.html:48
 msgid "Quality"
 msgstr "جودة"
 
-#: .\courses\templates\index.html:50
+#: .\courses\templates\index.html:48
 msgid "Education"
 msgstr "تعليم"
 
-#: .\courses\templates\index.html:57
+#: .\courses\templates\index.html:55
 msgid "Remote"
 msgstr "بعيد"
 
-#: .\courses\templates\index.html:57
+#: .\courses\templates\index.html:55
 msgid "Learning"
 msgstr "تعلُّم"
 
-#: .\courses\templates\index.html:64
+#: .\courses\templates\index.html:62
 msgid "Life Time"
 msgstr "حياة"
 
-#: .\courses\templates\index.html:64
+#: .\courses\templates\index.html:62
 msgid "Support"
 msgstr "يدعم"
 
-#: .\courses\templates\index.html:84
+#: .\courses\templates\index.html:82
 msgid "We Are Providing The Online Course In Global World"
 msgstr "نقدم هذه الدورة التدريبية عبر الإنترنت على مستوى العالم."
 
-#: .\courses\templates\index.html:88
+#: .\courses\templates\index.html:86
 msgid "Get access to"
 msgstr "احصل على إمكانية الوصول إلى"
 
-#: .\courses\templates\index.html:88
+#: .\courses\templates\index.html:86
 msgid "of our top courses"
 msgstr "من أفضل دوراتنا"
 
-#: .\courses\templates\index.html:89 .\courses\templates\index.html:166
+#: .\courses\templates\index.html:87 .\courses\templates\index.html:161
 msgid "Popular topic to learn now in our online courses for student"
 msgstr "موضوع شائع للتعلم حالياً في دوراتنا عبر الإنترنت المخصصة للطلاب."
 
-#: .\courses\templates\index.html:90 .\courses\templates\index.html:167
+#: .\courses\templates\index.html:88 .\courses\templates\index.html:162
 msgid "Find the right instructor for you"
 msgstr "اعثر على المدرب المناسب لك"
 
-#: .\courses\templates\index.html:104
+#: .\courses\templates\index.html:102
 msgid "Find out by popular Categories"
 msgstr "اكتشف حسب الفئات الشائعة"
 
-#: .\courses\templates\index.html:111
+#: .\courses\templates\index.html:109
 msgid "Digital Marketing"
 msgstr "التسويق الرقمي"
 
-#: .\courses\templates\index.html:112
+#: .\courses\templates\index.html:110
 msgid "UI/UX Design"
 msgstr "تصميم واجهة وتجربة المستخدم"
 
-#: .\courses\templates\index.html:113 .\courses\templates\index.html:121
+#: .\courses\templates\index.html:111
 msgid "3D Visual Design"
 msgstr "التصميم المرئي ثلاثي الأبعاد"
 
-#: .\courses\templates\index.html:114
+#: .\courses\templates\index.html:112
 #, fuzzy
 #| msgid "Digital Marketing"
 msgid "Content Marketing"
 msgstr "التسويق الرقمي"
 
-#: .\courses\templates\index.html:115
+#: .\courses\templates\index.html:113
 msgid "Photography"
 msgstr "التصوير الفوتوغرافي"
 
-#: .\courses\templates\index.html:116
+#: .\courses\templates\index.html:114
 msgid "Photo Lifestyle"
 msgstr "نمط الحياة المصوَّر"
 
-#: .\courses\templates\index.html:117 .\courses\templates\index.html:122
+#: .\courses\templates\index.html:115
 msgid "Art & Design"
 msgstr "الفن والتصميم"
 
-#: .\courses\templates\index.html:118
+#: .\courses\templates\index.html:116
 msgid "Finance & Banking"
 msgstr "المالية والمصرفية"
 
-#: .\courses\templates\index.html:119
+#: .\courses\templates\index.html:117
 msgid "Graphic Design"
 msgstr "التصميم الجرافيكي"
 
-#: .\courses\templates\index.html:120
-msgid "Interior Design"
-msgstr "التصميم الداخلي"
-
-#: .\courses\templates\index.html:139
+#: .\courses\templates\index.html:134
 msgid "View All"
 msgstr "عرض الكل"
 
-#: .\courses\templates\index.html:161
+#: .\courses\templates\index.html:156
 msgid "Why Choose Us For Your Online Education Courses"
 msgstr "لماذا تختارنا لدوراتك التعليمية عبر الإنترنت؟"
 
-#: .\courses\templates\index.html:165
+#: .\courses\templates\index.html:160
 msgid "Get access to <b>12,000+</b> of our top courses"
 msgstr "احصل على إمكانية الوصول إلى أكثر من 12,000 من أفضل دوراتنا"
 
-#: .\courses\templates\index.html:169
+#: .\courses\templates\index.html:164
 #, fuzzy
 #| msgid "All Courses"
 msgid "View All Courses"
@@ -473,6 +469,9 @@ msgstr "تمت إضافة الدورة التدريبية إلى عربة الت
 #: .\courses\views.py:225
 msgid "The course has been removed from your cart"
 msgstr "تمت إزالة الدورة التدريبية من عربة التسوق الخاصة بك."
+
+#~ msgid "Interior Design"
+#~ msgstr "التصميم الداخلي"
 
 #~ msgid ""
 #~ "As soon as you purchase the course, the details will be sent to you via "

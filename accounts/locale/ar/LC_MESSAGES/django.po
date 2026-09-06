@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-03 17:00+0300\n"
+"POT-Creation-Date: 2026-09-06 13:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,6 +48,10 @@ msgstr "تسجيل الدخول"
 #: .\accounts\templates\accounts\login.html:136
 msgid "Welcome back to Ed uleb."
 msgstr "مرحبًا بكم مجددًا في Ed uleb."
+
+#: .\accounts\templates\accounts\login.html:152
+msgid "Sign in with Google"
+msgstr "تسجيل الدخول باستخدام جوجل"
 
 #: .\accounts\templates\accounts\login.html:156
 msgid "Don't have an account?"

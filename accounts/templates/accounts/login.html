@@ -4,29 +4,13 @@
 {% load i18n %}
 
 <style>
-    html,
-    body {
-        width: 100%;
-        min-height: 100%;
-        height: auto !important;
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-    }
-
-    #navigation {
-        position: relative;
-        width: 100%;
-        z-index: 9999;
-    }
-
     .login-section {
-        min-height: calc(100dvh - 160px);
+        min-height: calc(100vh - 160px);
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 60px 20px;
         background: #f8f9fc;
-        box-sizing: border-box;
     }
 
     .login-card {
@@ -36,7 +20,6 @@
         border-radius: 18px;
         padding: 40px;
         box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
-        box-sizing: border-box;
     }
 
     .login-header {
@@ -75,7 +58,7 @@
         padding: 0 15px;
         font-size: 15px;
         outline: none;
-        transition: border-color 0.3s, box-shadow 0.3s; 
+        transition: 0.3s;
         box-sizing: border-box;
     }
 
@@ -102,7 +85,7 @@
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        transition: background 0.3s, transform 0.3s;
+        transition: 0.3s;
         margin-top: 5px;
     }
 
@@ -130,8 +113,7 @@
 
     @media (max-width: 576px) {
         .login-section {
-            min-height: auto; 
-            padding: 40px 15px;
+            padding: 30px 15px;
         }
 
         .login-card {
@@ -143,6 +125,7 @@
         }
     }
 </style>
+
 
 <section class="login-section" dir="rtl">
 
@@ -166,7 +149,7 @@
         </form>
 
         <a href="{% provider_login_url 'google' %}" class="btn btn-outline-danger w-100 fw-bold py-2 mt-2">
-            <i class="fa-brands fa-google me-2"></i> تسجيل الدخول باستخدام Google
+            <i class="fa-brands fa-google me-2"></i> {% trans "Sign in with Google" %}
         </a>
 
         <p class="register-link">
@@ -179,5 +162,21 @@
     </div>
 
 </section>
+
+<style>
+    html,
+    body {
+        overflow-x: hidden;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100%;
+    }
+
+    #navigation {
+        position: relative;
+        width: 100%;
+        z-index: 9999;
+    }
+</style>
 
 {% endblock %}
