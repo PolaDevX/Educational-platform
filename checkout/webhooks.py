@@ -6,7 +6,6 @@ from checkout import models
 from courses.models import Order, Course
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
-from django.contrib.auth.models import User
 from paypal.standard.models import ST_PP_COMPLETED
 from paypal.standard.ipn.signals import valid_ipn_received
 
@@ -42,35 +41,20 @@ def stripe_webhook(request):
 def make_order(transaction_id):
     transaction = models.Transaction.objects.get(pk=transaction_id)
 
-    # منع إنشاء Order مكرر
-    if transaction.status == models.TransactionStatus.Completed:
-        return
-
     courses = Course.objects.filter(pk__in=transaction.items)
 
     total = sum(course.price for course in courses)
 
-    customer_data = transaction.customer or {}
-    customer_email = customer_data.get('email')
-
-    user = User.objects.filter(email=customer_email).first()
-
-    if not user:
-        print(f'User not found for email: {customer_email}')
-        return
-
     order = Order.objects.create(
         transaction=transaction,
-        user=user,
-        customer=customer_data,
         total=total,
-        status='completed'
+        status='completed'  
     )
 
     order.courses.set(courses)
 
     transaction.status = models.TransactionStatus.Completed
-    transaction.save(update_fields=['status'])
+    transaction.save()
 
     for course in courses:
         order.orderproduct_set.create(
@@ -78,8 +62,8 @@ def make_order(transaction_id):
             price=course.price
         )
 
-    customer_email = customer_data.get('email')
-
+    customer_email = transaction.customer.get('email') if isinstance(transaction.customer, dict) else getattr(transaction, 'customer_email', None)
+    
     if customer_email:
         msg_html = render_to_string('emails/order.html', {
             'order': order,

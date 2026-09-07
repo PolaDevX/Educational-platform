@@ -3,10 +3,6 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
-import stripe
-
-from checkout.webhooks import make_order
-from django_ecommerce import settings
 from .models import AboutPageContent, Course, Category, Cart, Lesson, LessonComment, Order, OrderProduct, StudentReview
 from checkout.models import Transaction, TransactionStatus
 from django.contrib.auth.decorators import login_required
@@ -101,63 +97,57 @@ def checkout(request):
 
 @login_required
 def checkout_complete(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
+    session_id = request.session.session_key
     
-    payment_intent_id = request.GET.get('payment_intent')
+    transaction = Transaction.objects.filter(session=session_id, status=TransactionStatus.Pending).last()
     
-    if payment_intent_id:
-        try:
-            intent = stripe.PaymentIntent.retrieve(payment_intent_id)
-            
-            if intent.status == 'succeeded':
-                transaction_id = intent.metadata.get('transaction')
-                if transaction_id:
-                    make_order(transaction_id)
-        except Exception as e:
-            print(f"Stripe verification error: {e}")
+    if transaction:
+        order, created = Order.objects.get_or_create(
+            transaction=transaction,
+            defaults={
+                'total': transaction.amount,
+                'status': 'completed',
+                'user': request.user if request.user.is_authenticated else None
+            }
+        )
+        courses = Course.objects.filter(pk__in=transaction.items)
+        
+        transaction.status = TransactionStatus.Completed
+        transaction.save()
 
-    session_transaction_id = request.session.get('current_transaction_id')
-    context = {}
-    
-    if session_transaction_id:
-        try:
-            order = Order.objects.get(transaction=session_transaction_id, user=request.user)
-            context['order'] = order
-        except Order.DoesNotExist:
-            pass
-            
-    return render(request, 'thank-you.html', context)
+        for course in courses:
+            OrderProduct.objects.get_or_create(
+                order=order, 
+                course=course, 
+                defaults={'price': course.price}
+            )
 
+        Cart.objects.filter(session_id=session_id).delete()
+
+    return render(request, 'thank-you.html')
+
+@login_required
 def lesson_detail_view(request, pk):
     lesson = get_object_or_404(Lesson, pk=pk)
     course = lesson.section.course
 
-    has_bought = False
-
-    if request.user.is_authenticated:
-        has_bought = Order.objects.filter(
-            user=request.user,
-            orderproduct__course=course,
-            status='completed'
-        ).exists()
+    has_bought = Order.objects.filter(
+        user=request.user, 
+        orderproduct__course=course, 
+        status='completed'
+    ).exists()
 
     if not (has_bought or lesson.is_preview):
         return redirect('course_detail', pid=course.id)
-
+    
     if request.method == 'POST':
-        if not request.user.is_authenticated:
-            return redirect('account_login')
-
         text = request.POST.get('text')
         parent_id = request.POST.get('parent_id')
-
+        
         if text:
             parent_comment = None
-
             if parent_id:
-                parent_comment = LessonComment.objects.filter(
-                    pk=parent_id
-                ).first()
+                parent_comment = LessonComment.objects.filter(pk=parent_id).first()
 
             LessonComment.objects.create(
                 lesson=lesson,
@@ -165,13 +155,10 @@ def lesson_detail_view(request, pk):
                 text=text,
                 parent=parent_comment
             )
-
             return redirect('lesson_detail', pk=lesson.pk)
 
-    comments = lesson.comments.filter(
-        parent=None
-    ).select_related('user').prefetch_related('replies__user')
-
+    comments = lesson.comments.filter(parent=None).select_related('user').prefetch_related('replies__user')
+    
     return render(request, 'lesson_detail.html', {
         'lesson': lesson,
         'comments': comments
