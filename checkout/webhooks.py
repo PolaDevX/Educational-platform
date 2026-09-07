@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 import stripe
 from django.http import HttpResponse
 from checkout import models
-from courses.models import Order, Course
+from courses.models import Cart, Order, Course, OrderProduct
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from paypal.standard.models import ST_PP_COMPLETED
@@ -39,41 +39,55 @@ def stripe_webhook(request):
     return HttpResponse(status=200)
 
 def make_order(transaction_id):
-    transaction = models.Transaction.objects.get(pk=transaction_id)
+    try:
+        transaction = models.Transaction.objects.get(pk=transaction_id)
+        
+        if transaction.status == models.TransactionStatus.Completed:
+            return
 
-    courses = Course.objects.filter(pk__in=transaction.items)
+        courses = Course.objects.filter(pk__in=transaction.items)
+        total = sum(course.price for course in courses)
 
-    total = sum(course.price for course in courses)
+        user_id = transaction.customer.get('user_id') if isinstance(transaction.customer, dict) else None
+        user = None
+        if user_id:
+            from django.contrib.auth.models import User
+            user = User.objects.filter(pk=user_id).first()
 
-    order = Order.objects.create(
-        transaction=transaction,
-        total=total,
-        status='completed'  
-    )
-
-    order.courses.set(courses)
-
-    transaction.status = models.TransactionStatus.Completed
-    transaction.save()
-
-    for course in courses:
-        order.orderproduct_set.create(
-            course_id=course.id,
-            price=course.price
+        order = Order.objects.create(
+            transaction=transaction,
+            total=total,
+            status='completed',
+            user=user
         )
 
-    customer_email = transaction.customer.get('email') if isinstance(transaction.customer, dict) else getattr(transaction, 'customer_email', None)
-    
-    if customer_email:
-        msg_html = render_to_string('emails/order.html', {
-            'order': order,
-            'courses': courses,
-        })
+        transaction.status = models.TransactionStatus.Completed
+        transaction.save()
 
-        send_mail(
-            subject='Order Completed',
-            html_message=msg_html,
-            message=msg_html,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[customer_email],
-        )
+        for course in courses:
+            OrderProduct.objects.get_or_create(
+                order=order,
+                course=course,
+                defaults={'price': course.price}
+            )
+
+        if transaction.session:
+            Cart.objects.filter(session_id=transaction.session).delete()
+
+        customer_email = transaction.customer.get('email') if isinstance(transaction.customer, dict) else getattr(transaction, 'customer_email', None)
+        if customer_email:
+            msg_html = render_to_string('emails/order.html', {
+                'order': order,
+                'courses': courses,
+            })
+
+            send_mail(
+                subject='Order Completed',
+                html_message=msg_html,
+                message=msg_html,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[customer_email],
+            )
+            
+    except Exception as e:
+        print(f"Error in make_order: {e}")
