@@ -15,7 +15,7 @@
                 <nav id="main-menu">
                     <ul>
                         <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
-                        <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>                          
+                        <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>                           
                         <li class="nav-item">
                             <a href="{% url 'blog_list' %}" class="nav-link">{% trans "Blog" %}</a>
                         </li>
@@ -72,9 +72,9 @@
                                 <a href="#">👤 {{ user.first_name|default:user.username }}</a>
                                 <ul class="sub-menu">
                                     <li>
-                                        <form action="{% url 'accounts:logout' %}" method="post" id="logout-form">
+                                        <form action="{% url 'accounts:logout' %}" method="post" id="logout-form-desktop">
                                             {% csrf_token %}
-                                            <a href="#" onclick="document.getElementById('logout-form').submit(); return false;" style="color: #dc3545;">
+                                            <a href="#" onclick="document.getElementById('logout-form-desktop').submit(); return false;" style="color: #dc3545;">
                                                 {% trans "Logout" %}
                                             </a>
                                         </form>
