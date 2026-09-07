@@ -20,11 +20,10 @@ from django.conf.urls.static import static
 from django.urls import path, include
 import os
 
-ADMIN_URL = os.environ.get('ADMIN_URL')
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include('courses.urls')),
-    path(ADMIN_URL, admin.site.urls),
     path('checkout/', include('checkout.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
     path('blog/', include('blog.urls')),
