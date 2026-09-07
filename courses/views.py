@@ -98,49 +98,41 @@ def checkout(request):
 @login_required
 def checkout_complete(request):
     session_id = request.session.session_key
+    context = {}
     
-    transaction = Transaction.objects.filter(session=session_id, status=TransactionStatus.Pending).last()
-    
-    if transaction:
-        order, created = Order.objects.get_or_create(
-            transaction=transaction,
-            defaults={
-                'total': transaction.amount,
-                'status': 'completed',
-                'user': request.user if request.user.is_authenticated else None
-            }
-        )
-        courses = Course.objects.filter(pk__in=transaction.items)
-        
-        transaction.status = TransactionStatus.Completed
-        transaction.save()
+    if session_id:
+        try:
 
-        for course in courses:
-            OrderProduct.objects.get_or_create(
-                order=order, 
-                course=course, 
-                defaults={'price': course.price}
-            )
+            transaction = Transaction.objects.filter(session=session_id, status=TransactionStatus.Completed).last()
+            if transaction:
+                order = Order.objects.get(transaction=transaction, user=request.user)
+                context['order'] = order
+        except Order.DoesNotExist:
+            pass
+            
+    return render(request, 'thank-you.html', context)
 
-        Cart.objects.filter(session_id=session_id).delete()
-
-    return render(request, 'thank-you.html')
-
-@login_required
 def lesson_detail_view(request, pk):
     lesson = get_object_or_404(Lesson, pk=pk)
     course = lesson.section.course
 
-    has_bought = Order.objects.filter(
-        user=request.user, 
-        orderproduct__course=course, 
-        status='completed'
-    ).exists()
+    has_bought = False
+    if request.user.is_authenticated:
+        has_bought = Order.objects.filter(
+            user=request.user, 
+            orderproduct__course=course, 
+            status='completed'
+        ).exists()
 
     if not (has_bought or lesson.is_preview):
+        if not request.user.is_authenticated:
+            return redirect('login') 
         return redirect('course_detail', pid=course.id)
     
     if request.method == 'POST':
+        if not request.user.is_authenticated:
+            return redirect('login')
+            
         text = request.POST.get('text')
         parent_id = request.POST.get('parent_id')
         
@@ -163,7 +155,6 @@ def lesson_detail_view(request, pk):
         'lesson': lesson,
         'comments': comments
     })
-
 @login_required
 def course_learn_view(request, pk):
     course = get_object_or_404(Course, pk=pk)
