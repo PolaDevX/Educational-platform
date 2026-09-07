@@ -3,6 +3,10 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
+import stripe
+
+from checkout.webhooks import make_order
+from django_ecommerce import settings
 from .models import AboutPageContent, Course, Category, Cart, Lesson, LessonComment, Order, OrderProduct, StudentReview
 from checkout.models import Transaction, TransactionStatus
 from django.contrib.auth.decorators import login_required
@@ -97,11 +101,27 @@ def checkout(request):
 
 @login_required
 def checkout_complete(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    
+    payment_intent_id = request.GET.get('payment_intent')
+    
+    if payment_intent_id:
+        try:
+            intent = stripe.PaymentIntent.retrieve(payment_intent_id)
+            
+            if intent.status == 'succeeded':
+                transaction_id = intent.metadata.get('transaction')
+                if transaction_id:
+                    make_order(transaction_id)
+        except Exception as e:
+            print(f"Stripe verification error: {e}")
+
     session_transaction_id = request.session.get('current_transaction_id')
     context = {}
+    
     if session_transaction_id:
         try:
-            order = Order.objects.get(transaction_id=session_transaction_id, user=request.user)
+            order = Order.objects.get(transaction=session_transaction_id, user=request.user)
             context['order'] = order
         except Order.DoesNotExist:
             pass
