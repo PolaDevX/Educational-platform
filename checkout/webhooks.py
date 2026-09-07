@@ -41,7 +41,15 @@ def stripe_webhook(request):
 def make_order(transaction_id):
     transaction = models.Transaction.objects.get(pk=transaction_id)
 
-    courses = Course.objects.filter(pk__in=transaction.items)
+    items = transaction.items
+    if isinstance(items, str):
+        import json
+        try:
+            items = json.loads(items)
+        except:
+            items = []
+
+    courses = Course.objects.filter(pk__in=items)
 
     total = sum(course.price for course in courses)
 
