@@ -43,58 +43,28 @@
                     </div>
                 </div>
 
-                <!-- أقسام ومحتويات الكورس ومعاينة الدروس -->
                 <div class="card border-0 shadow-sm p-4 rounded-4 bg-white">
-                    <h4 class="fw-bold text-dark mb-4">{% trans "Course Content" %}</h4>
+                    <h4 class="fw-bold text-dark mb-4">🎥 {% trans "Free Preview Lessons" %}</h4>
                     
-                    {% if sections %}
-                        {% for section in sections %}
-                            <div class="card border mb-3 shadow-none">
-                                <div class="card-header bg-light d-flex justify-content-between align-items-center py-3">
-                                    <h5 class="mb-0 fw-bold text-secondary" style="font-size: 1.1rem;">{{ section.title }}</h5>
-                                    <span class="badge bg-secondary text-white">
-                                        {{ section.lessons.count }} {% trans "lessons" %}
-                                    </span>
-                                </div>
-                                <div class="card-body p-2">
-                                    <div class="list-group list-group-flush">
-                                        {% for lesson in section.lessons.all %}
-                                            <div class="list-group-item d-flex justify-content-between align-items-center border-0 py-2">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    {% if lesson.is_preview or has_bought %}
-                                                        <i class="fa-solid fa-play text-primary"></i>
-                                                    {% else %}
-                                                        <i class="fa-solid fa-lock text-muted"></i>
-                                                    {% endif %}
-                                                    <span class="text-dark">{{ lesson.title }}</span>
-                                                </div>
-
-                                                <div>
-                                                    {% if lesson.is_preview %}
-                                                        <a href="{% url 'lesson_detail' lesson.id %}" class="btn btn-sm btn-outline-success px-3 rounded-pill">
-                                                            🎥 {% trans "Preview" %}
-                                                        </a>
-                                                    {% elif has_bought %}
-                                                        <a href="{% url 'lesson_detail' lesson.id %}" class="btn btn-sm btn-outline-primary px-3 rounded-pill">
-                                                            📺 {% trans "Watch" %}
-                                                        </a>
-                                                    {% else %}
-                                                        <span class="badge bg-light text-muted border px-3 py-2 rounded-pill">
-                                                            🔒 {% trans "Locked" %}
-                                                        </span>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        {% empty %}
-                                            <p class="text-muted small m-2">{% trans "No lessons in this section." %}</p>
-                                        {% endfor %}
+                    {% if preview_lessons %}
+                        <div class="list-group list-group-flush">
+                            {% for lesson in preview_lessons %}
+                                <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-3 border-bottom">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="fa-solid fa-play text-success"></i>
+                                        <span class="text-dark fw-medium">{{ lesson.title }}</span>
+                                    </div>
+                                    <div>
+                                        <a href="{% url 'lesson_detail' lesson.id %}" class="btn btn-sm btn-outline-success px-4 rounded-pill">
+                                            {% trans "Watch Preview" %} 🚀
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
                     {% else %}
-                        <div class="alert alert-info text-center mb-0">
-                            {% trans "There are currently no sections or lessons available for this course." %}
+                        <div class="alert alert-light text-center text-muted mb-0 border py-3">
+                            {% trans "No preview lessons available for this course yet." %}
                         </div>
                     {% endif %}
                 </div>

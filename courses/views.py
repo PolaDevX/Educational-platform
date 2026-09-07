@@ -23,9 +23,14 @@ def course_detail(request, pid):
             status='completed'
         ).exists()
 
+    preview_lessons = Lesson.objects.filter(section__course=course, is_preview=True)
+
     return render(
-        request, 'course_details.html', {'course': course,
-                 'has_bought': has_bought}
+        request, 'course_details.html', {
+            'course': course,
+            'has_bought': has_bought,
+            'preview_lessons': preview_lessons, 
+        }
     )
 
 @login_required
