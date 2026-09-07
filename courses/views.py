@@ -106,7 +106,7 @@ def checkout_complete(request):
         except Order.DoesNotExist:
             pass
             
-    return render(request, 'courses/thank-you.html', context)
+    return render(request, 'thank-you.html', context)
 
 def lesson_detail_view(request, pk):
     lesson = get_object_or_404(Lesson, pk=pk)
