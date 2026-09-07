@@ -21,7 +21,7 @@
 <h2> لوحة التحكم (Django Admin) </h2>
 <p>للدخول إلى لوحة التحكم عبر الرابط <code>/admin/</code>، استخدم البيانات التالية:</p>
 <ul>
-  <li>اسم المستخدم: <code>admin</code></li>
+  <li>اسم المستخدم: <code>pola</code></li>
   <li>كلمة المرور: <code>1234</code></li>
 </ul>
 </div>

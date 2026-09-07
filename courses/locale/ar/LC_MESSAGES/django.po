@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 13:57+0300\n"
+"POT-Creation-Date: 2026-09-07 22:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\courses\models.py:20 .\courses\templates\course_details.html:34
+#: .\courses\models.py:20 .\courses\templates\course_details.html:33
 msgid "Category"
 msgstr "فئة"
 
@@ -27,7 +27,7 @@ msgstr "فئة"
 msgid "Categories"
 msgstr "فئات"
 
-#: .\courses\models.py:33 .\courses\templates\course_details.html:29
+#: .\courses\models.py:33 .\courses\templates\course_details.html:28
 #: .\courses\templates\index.html:41
 msgid "Teacher"
 msgstr "مدرس"
@@ -40,7 +40,7 @@ msgstr "المعلمون"
 msgid "Course"
 msgstr "دورة"
 
-#: .\courses\models.py:54 .\courses\templates\course_details.html:14
+#: .\courses\models.py:54 .\courses\templates\course_details.html:13
 msgid "Courses"
 msgstr "دورات"
 
@@ -161,7 +161,7 @@ msgid "Next"
 msgstr "التالي"
 
 #: .\courses\templates\checkout.html:13
-#: .\courses\templates\course_details.html:51
+#: .\courses\templates\course_details.html:75
 msgid "Enroll Now"
 msgstr "سجّل الآن"
 
@@ -197,21 +197,35 @@ msgstr "ادفع الآن"
 msgid "30-day money-back guarantee"
 msgstr "ضمان استرداد الأموال خلال 30 يوماً"
 
-#: .\courses\templates\course_details.html:13
+#: .\courses\templates\course_details.html:12
 #: .\courses\templates\partials\header.html:17
 #: .\courses\templates\partials\header.html:97
 msgid "Home"
 msgstr "الصفحه الرئيسية"
 
-#: .\courses\templates\course_details.html:40
+#: .\courses\templates\course_details.html:39
 msgid "About This Course"
 msgstr "نبذة عن هذه الدورة"
 
-#: .\courses\templates\course_details.html:55
+#: .\courses\templates\course_details.html:47
+msgid "Free Preview Lessons"
+msgstr "دروس معاينة مجانية"
+
+#: .\courses\templates\course_details.html:59
+msgid "Watch Preview"
+msgstr "شاهد المعاينة"
+
+#: .\courses\templates\course_details.html:67
+#, fuzzy
+#| msgid "There are currently no reviews added from the control panel."
+msgid "No preview lessons available for this course yet."
+msgstr "لا توجد حالياً أي مراجعات مضافة من لوحة التحكم."
+
+#: .\courses\templates\course_details.html:79
 msgid "Go to watch the course"
 msgstr "الانتقال إلى مشاهدة الكورس"
 
-#: .\courses\templates\course_details.html:59
+#: .\courses\templates\course_details.html:83
 msgid "Subscribe now for only"
 msgstr "اشترك الآن مقابل"
 
@@ -221,11 +235,17 @@ msgstr "اشترك الآن مقابل"
 msgid "lesson"
 msgstr "درس"
 
-#: .\courses\templates\course_learn.html:29
+#: .\courses\templates\course_learn.html:27
+#, fuzzy
+#| msgid "Previous"
+msgid "Preview"
+msgstr "سابق"
+
+#: .\courses\templates\course_learn.html:41
 msgid "No lessons have been added to this section yet."
 msgstr "لم تتم إضافة أي دروس إلى هذا القسم بعد."
 
-#: .\courses\templates\course_learn.html:37
+#: .\courses\templates\course_learn.html:49
 #, fuzzy
 #| msgid "There are currently no reviews added from the control panel."
 msgid "There are currently no sections available for this course."
@@ -462,11 +482,11 @@ msgstr "تسجيل الخروج"
 msgid "Register"
 msgstr "إنشاء حساب"
 
-#: .\courses\views.py:204
+#: .\courses\views.py:200
 msgid "The course has been added to your cart"
 msgstr "تمت إضافة الدورة التدريبية إلى عربة التسوق الخاصة بك."
 
-#: .\courses\views.py:225
+#: .\courses\views.py:221
 msgid "The course has been removed from your cart"
 msgstr "تمت إزالة الدورة التدريبية من عربة التسوق الخاصة بك."
 
