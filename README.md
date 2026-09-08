@@ -23,10 +23,10 @@
 <p>أنشئ ملف <code>.env</code> في جذر المشروع وأضف الآتي:</p>
 <pre><code>
 DEBUG=True
-SECRET_KEY= your_secret_key
-STRIPE_PUBLISHABLE_KEY= your_stripe_publishable_key
-STRIPE_SECRET_KEY= your_stripe_secret_key
-STRIPE_WEBHOOK_SECRET= your_webhook_secret
+SECRET_KEY = your_secret_key
+STRIPE_PUBLISHABLE_KEY = your_stripe_publishable_key
+STRIPE_SECRET_KEY = your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET = your_webhook_secret
 GOOGLE_CLIENT_ID = your_google_client_id
 GOOGLE_CLIENT_SECRET = your_google_client_secret
 </code></pre>
